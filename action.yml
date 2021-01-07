@@ -1,0 +1,14 @@
+name: 'my first container action'
+description: 'Testing GitHub Actions'
+author: 'Jagan Mandalapu'
+inputs:
+  myInput:
+    description: 'Hello message'
+    required: true
+    default: 'Hi there'
+  outputs:
+    myOutput:
+      description: 'total memory'
+  runs:
+    using: 'docker'
+    image: 'Dockerfile'
