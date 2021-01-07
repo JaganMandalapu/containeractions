@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: run the action
+      id: hello
+      uses: ./
+      with:
+        myInput: 'Jagan Mandalapu'
+    - name: Output
+      run: |
+        echo ${{steps.hello.outputs.memory }}
+        echo "Total memory successfully output"
