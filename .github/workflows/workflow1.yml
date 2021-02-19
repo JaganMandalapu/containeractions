@@ -1,0 +1,23 @@
+name: Test
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      
+    - name: Call workflow 2
+      if: success()
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_GHA_PAT }}
+        repository: ${{ github.repository }}
+        event-type: trigger-workflow-2
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
