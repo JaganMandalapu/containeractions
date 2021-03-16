@@ -18,6 +18,6 @@ jobs:
     steps:
     - run: |
         echo "Hello ${{ github.event.inputs.name }}!"
-      if: github.events.inputs.name == 'Jagan'
+      if: github.event.inputs.name == 'Jagan'
     - run: |
         echo "- in ${{ github.event.inputs.home }}!"
