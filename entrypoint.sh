@@ -4,5 +4,5 @@
 #memory=$(cat /proc/meminfo)
 #echo "::set-output name=memory::$memory"
 
-branch=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
-echo "::set-output name=env_val::$branch"
+out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
+echo "::set-output name=env_val::$out"
