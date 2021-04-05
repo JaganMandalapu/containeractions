@@ -1,0 +1,13 @@
+name: 'my first container action'
+description: 'Testing GitHub Actions'
+author: 'Jagan Mandalapu'
+inputs:
+  branch_input:
+    description: 'Brahnch ref'
+    required: true
+outputs:
+  env_val:
+    description: 'Environment value'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
