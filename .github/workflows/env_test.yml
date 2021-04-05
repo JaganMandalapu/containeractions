@@ -15,13 +15,13 @@ jobs:
       
     - name: run the action
       uses: ./
-      id: env_test
+      id: env-test
       with:
         branch_input: $ART_ENV
     
     - name: output
       run: |
         echo "Getting environment value"
-        echo ${{ steps.env_test.outputs.env_val }}
+        echo ${{ steps.env-test.outputs.env-val }}
         
      
