@@ -5,5 +5,6 @@
 #echo "::set-output name=memory::$memory"
 
 out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
+echo "Output from entrypoint.sh"
 echo $out
 echo "::set-output name=env_val::$out"
