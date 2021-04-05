@@ -21,6 +21,7 @@ jobs:
     
     - name: output
       run: |
+        echo "Getting environment value"
         echo ${{ steps.env_test.outputs.env_val }}
         
      
