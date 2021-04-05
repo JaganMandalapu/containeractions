@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@main
       
     - name: run the action
-      uses: .
+      uses: ./
       id: env_test
       with:
         branch_input: $ART_ENV
