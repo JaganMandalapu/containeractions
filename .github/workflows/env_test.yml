@@ -1,9 +1,6 @@
 on:
   workflow_dispatch:
 
-env:
-  ART_ENV: ${{ github.ref }}
-
 jobs:
   set-env:
     name: set environment
@@ -17,7 +14,7 @@ jobs:
       uses: ./
       id: env-test
       with:
-        branch_input: $ART_ENV
+        branch_input: ${{ github.ref }}
     
     - name: output
       run: |
