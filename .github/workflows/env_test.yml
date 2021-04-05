@@ -17,7 +17,7 @@ jobs:
       uses: .
       id: env_test
       with:
-        branch_input: ${{ ART_ENV }}
+        branch_input: $ART_ENV
     
     - name: output
       run: |
