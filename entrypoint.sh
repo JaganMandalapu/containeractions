@@ -4,7 +4,10 @@
 #memory=$(cat /proc/meminfo)
 #echo "::set-output name=memory::$memory"
 
-out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
-echo "Output from entrypoint.sh"
-echo $out
+# out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
+# echo "Output from entrypoint.sh"
+# echo $out
+# echo "::set-output name=env-val::$out"
+
+out="ubuntu-20.04"
 echo "::set-output name=env-val::$out"
