@@ -30,6 +30,6 @@ jobs:
     
     steps:
     - name: Hello
-      run: echo ${{ needs.set-env.outputs.env-val }}
+      run: echo ${{ needs.set-env.outputs.runner_name }}
         
      
