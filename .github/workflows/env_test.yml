@@ -5,6 +5,8 @@ jobs:
   set-env:
     name: set environment
     runs-on: ubuntu-latest
+    outputs:
+      runner_name: ${{ steps.env-test.outputs.env-val }}
     
     steps:
     - name: Checkout
@@ -20,5 +22,14 @@ jobs:
       run: |
         echo "Getting environment value"
         echo ${{ steps.env-test.outputs.env-val }}
+  actual-work:
+    name: Do actual work
+    needs:
+    - set-env
+    runs-on: ${{ needs.set-env.outputs.env-val }}
+    
+    steps:
+    - name: Hello
+      run: echo ${{ needs.set-env.outputs.env-val }}
         
      
