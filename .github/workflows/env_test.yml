@@ -34,7 +34,7 @@ jobs:
     runs-on: github.event.inputs.confirmation
     
     steps:
-    - name: Hello!
+    - name: Hello
       run: echo ${{ needs.set-env.outputs.runner_name }}
         
      
