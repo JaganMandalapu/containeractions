@@ -1,9 +1,10 @@
 on:
   workflow_dispatch:
     inputs:
-      confirmation: 'Select your environment'
-      required: true
-      default: 'ubuntu-latest'
+      confirmation: 
+        description: 'Select your environment'
+        required: true
+        default: 'ubuntu-latest'
     
 
 jobs:
