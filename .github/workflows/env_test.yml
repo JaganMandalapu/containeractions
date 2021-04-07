@@ -9,7 +9,7 @@ on:
 jobs:
   set-env:
     name: set environment
-    runs-on: github.event.inputs.confirmation
+    runs-on: ubuntu-latest
     outputs:
       runner_name: ${{ steps.env-test.outputs.env-val }}
     
