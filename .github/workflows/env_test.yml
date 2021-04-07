@@ -32,7 +32,7 @@ jobs:
     name: Do actual work
     needs:
     - set-env
-    runs-on: github.event.inputs.confirmation
+    runs-on: ${{github.event.inputs.confirmation}}
     
     steps:
     - name: Hello
