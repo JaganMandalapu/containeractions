@@ -1,10 +1,15 @@
 on:
   workflow_dispatch:
+    inputs:
+      confirmation: 'Select your environment'
+      required: true
+      default: 'ubuntu-latest'
+    
 
 jobs:
   set-env:
     name: set environment
-    runs-on: ubuntu-latest
+    runs-on: github.event.inputs.confirmation
     outputs:
       runner_name: ${{ steps.env-test.outputs.env-val }}
     
