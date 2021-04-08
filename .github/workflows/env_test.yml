@@ -37,7 +37,7 @@ jobs:
     needs:
     - set-env
     #runs-on: ${{github.event.inputs.runner}}
-    runs-on: steps.env-test.outputs.env-val
+    runs-on: ${{needs.set-env.outputs.runner_name}}
     environment: github.event.inputs.my_environment
     
     steps:
