@@ -15,7 +15,8 @@ jobs:
     name: set environment
     runs-on: ubuntu-latest
     outputs:
-      runner_name: ${{ steps.env-test.outputs.env-val }}
+      runner_name: ${{ steps.env-test.outputs.runner }}
+      environment_name: ${{ steps.env-test.outputs.env_val }}
     
     steps:
     - name: Checkout
@@ -30,7 +31,9 @@ jobs:
     - name: output
       run: |
         echo "Getting environment value"
-        echo ${{ steps.env-test.outputs.env-val }}
+        echo ${{ steps.env-test.outputs.env_val }}
+        echo "Getting runner name"
+        echo ${{ steps.env-test.outputs.runner }}
         
   actual-work:
     name: Do actual work
@@ -38,10 +41,12 @@ jobs:
     - set-env
     #runs-on: ${{github.event.inputs.runner}}
     runs-on: ${{needs.set-env.outputs.runner_name}}
-    environment: github.event.inputs.my_environment
+    environment: ${{needs.set-env.outputs.environment_name}}
     
     steps:
     - name: Hello
-      run: echo ${{ needs.set-env.outputs.runner_name }}
+      run: |
+      echo ${{ needs.set-env.outputs.runner_name }}
+      echo ${{ needs.set-env.outputs.environment_name }}
         
      
