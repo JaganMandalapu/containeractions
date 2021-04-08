@@ -41,7 +41,7 @@ jobs:
     - set-env
     #runs-on: ${{github.event.inputs.runner}}
     runs-on: ${{needs.set-env.outputs.runner_name}}
-    environment: ${{needs.set-env.outputs.environment_name}}
+    environment: needs.set-env.outputs.environment_name
     
     steps:
     - name: Hello
