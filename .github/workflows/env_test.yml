@@ -33,6 +33,7 @@ jobs:
     needs:
     - set-env
     runs-on: ${{github.event.inputs.confirmation}}
+    environment: DEV
     
     steps:
     - name: Hello
