@@ -31,11 +31,13 @@ jobs:
       run: |
         echo "Getting environment value"
         echo ${{ steps.env-test.outputs.env-val }}
+        
   actual-work:
     name: Do actual work
     needs:
     - set-env
-    runs-on: ${{github.event.inputs.runner}}
+    #runs-on: ${{github.event.inputs.runner}}
+    runs-on: ${{ steps.env-test.outputs.env-val }}
     environment: github.event.inputs.my_environment
     
     steps:
