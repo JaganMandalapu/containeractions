@@ -46,7 +46,8 @@ jobs:
     steps:
     - name: Hello
       run: |
-      echo ${{ needs.set-env.outputs.runner_name }}
-      echo ${{ needs.set-env.outputs.environment_name }}
+        echo ${{ needs.set-env.outputs.runner_name }}
+        echo ${{ needs.set-env.outputs.runner_name }}
+        
         
      
