@@ -1,13 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-#echo "Hello $INPUT_MYINPUT"
-#memory=$(cat /proc/meminfo)
-#echo "::set-output name=memory::$memory"
+env-out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g' | sed 's/RELEASE_art_//g' | tr '[a-z]' '[A-Z]'`
+echo "::set-output name=env_val::${env-out}"
 
-# out=`echo $INPUT_BRANCH_INPUT | sed 's/refs\/heads\///g'`
-# echo "Output from entrypoint.sh"
-# echo $out
-# echo "::set-output name=env-val::$out"
-
-out="ubuntu-20.04"
-echo "::set-output name=env-val::$out"
+if [ $env-out = 'DEV' ]; then
+  runner='ubuntu-20.04'
+else
+  runner='ubuntu-18.04'
+fi
